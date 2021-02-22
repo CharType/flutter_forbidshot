@@ -26,7 +26,7 @@ public class FlutterForbidshotPlugin implements MethodCallHandler {
   @Override
   public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("setOn")) {
-      _registrar.activity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+      _registrar.activity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);
     } else if(call.method.equals("setOff")){
       _registrar.activity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
     } else if(call.method.equals("volume")){
