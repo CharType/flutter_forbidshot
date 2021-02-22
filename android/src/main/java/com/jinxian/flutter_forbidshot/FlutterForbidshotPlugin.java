@@ -10,6 +10,7 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import android.util.Log;
 
 /** FlutterForbidshotPlugin */
 public class FlutterForbidshotPlugin implements MethodCallHandler {
@@ -26,6 +27,7 @@ public class FlutterForbidshotPlugin implements MethodCallHandler {
   @Override
   public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("setOn")) {
+      Log.e("setOn","this is setOn");
       _registrar.activity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
     } else if(call.method.equals("setOff")){
       _registrar.activity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
